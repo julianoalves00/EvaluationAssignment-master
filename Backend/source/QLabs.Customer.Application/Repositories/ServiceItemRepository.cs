@@ -24,7 +24,7 @@ namespace QLabs.Customer.Application.Repositories
                 if (_instance == null)
                 {
                     _instance = new ServiceItemRepository();
-                    PreLoad();
+                    //PreLoad();
                 }
 
                 return _instance;
@@ -38,12 +38,13 @@ namespace QLabs.Customer.Application.Repositories
 
         public void Delete(Guid id)
         {
-            services.Remove(id);
+            if(services.ContainsKey(id))
+                services.Remove(id);
         }
 
         public ServiceItem Get(Guid id)
         {
-            return services[id];
+            return services.ContainsKey(id) ? services[id] : null;
         }
 
         public List<ServiceItem> GetAll()
@@ -53,7 +54,8 @@ namespace QLabs.Customer.Application.Repositories
 
         public void Update(ServiceItem entity)
         {
-            services[entity.Id] = entity;
+            if (services.ContainsKey(entity.Id))
+                services[entity.Id] = entity;
         }
 
         private static void PreLoad()

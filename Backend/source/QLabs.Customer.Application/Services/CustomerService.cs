@@ -11,40 +11,38 @@ namespace QLabs.Customer.Application.Services
 {
     public class CustomerService : ICustomerService
     {
-        private CustomerRepository _customerRepository;
-        private ServiceItemRepository _serviceRepository;
+        private CustomerRepository _repository;
         private readonly ILogger<CustomerService> _logger;
 
         public CustomerService(ILogger<CustomerService> logger)
         {
             _logger = logger;
-            _customerRepository = CustomerRepository.Instance;
-            _serviceRepository = ServiceItemRepository.Instance;
+            _repository = CustomerRepository.Instance;
         }
 
         public List<CustomerItem> GetAll()
         {
-            return _customerRepository.GetAll();
+            return _repository.GetAll();
         }
 
         public CustomerItem Get(Guid id)
         {
-            CustomerItem customerItem = _customerRepository.Get(id);
+            CustomerItem entity = _repository.Get(id);
 
-            customerItem.Contracts?.ForEach(c => c.Service = _serviceRepository.Get(c.ServiceId));
+            entity.Contracts?.ForEach(c => c.Service = ServiceItemRepository.Instance.Get(c.ServiceId) ?? null);
 
-            return customerItem;
+            return entity;
         }
 
-        public CustomerItem Create(CustomerItem customerRegister)
+        public CustomerItem Create(CustomerItem entity)
         {
-            if(customerRegister.Id == Guid.Empty)
-                customerRegister.Id = Guid.NewGuid();
-            customerRegister.Contracts?.ForEach(c => c.CustumerId = customerRegister.Id);
+            if(entity.Id == Guid.Empty)
+                entity.Id = Guid.NewGuid();
+            entity.Contracts?.ForEach(c => c.CustumerId = entity.Id);
 
-            _customerRepository.Add(customerRegister);
+            _repository.Add(entity);
 
-            return customerRegister;
+            return entity;
         }
 
         

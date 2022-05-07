@@ -20,19 +20,30 @@ namespace QLabs.Customer.Application.Services
             _repository = ServiceItemRepository.Instance;
         }
 
-        public ServiceItem Create(ServiceItem customerRegister)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ServiceItem Get(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<ServiceItem> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
+        public ServiceItem Get(Guid id)
+        {
+            ServiceItem entity = _repository.Get(id);
+
+            return entity;
+        }
+
+        public ServiceItem Create(ServiceItem entity)
+        {
+            if (entity.Id == Guid.Empty)
+                entity.Id = Guid.NewGuid();
+            
+
+            _repository.Add(entity);
+
+            return entity;
+        }
+
+        
+
+        
     }
 }

@@ -38,7 +38,6 @@ namespace QLabs.Customer.Application.Services
 
             using (var client = new HttpClient())
             {
-                //client.BaseAddress = new Uri("https://localhost:5001/");
                 client.BaseAddress = new Uri(_config.GetSection("CustumerApiUrl").Value);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -86,6 +85,10 @@ namespace QLabs.Customer.Application.Services
             decimal discountPercent = 0;
             IEnumerable<DateTime> normalPeriod = totalPeriod;
             IEnumerable<DateTime> descountPeriod = null;
+
+            // use contract start date if newer than min total period
+            if (contract.StartDate > totalPeriod.Min())
+                totalPeriod = totalPeriod.Where(d => d >= contract.StartDate);
 
             // Handle the discounts
             if (contract.DiscountPeriod != null)

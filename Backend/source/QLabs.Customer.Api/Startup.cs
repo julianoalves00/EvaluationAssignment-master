@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using QLabs.Customer.Api.LoadData;
 using QLabs.Customer.Application.Services;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,10 @@ namespace QLabs.Customer.Api
             });
 
             services.AddSingleton<ICustomerService, CustomerService>();
+            services.AddSingleton<IServiceItemService, ServiceItemService>();
+            services.AddSingleton<IPreLoadServices, PreLoadServices>();
+
+            services.AddHostedService<LoadDataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
