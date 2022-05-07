@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QLabs.Customer.Domain
+namespace QLabs.Common.Domain
 {
     public class ContractService : BaseEntity
     {

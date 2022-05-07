@@ -12,24 +12,33 @@ namespace QLabs.PricingCalculator.Test
 {
     public class PriceCalculatorTest
     {
+        IConfiguration _config;
+
+        private CalculatingController CalculatingControl
+        {
+            get
+            {
+                var mockPricingService = new Mock<ILogger<PricingServiceService>>();
+                ILogger<PricingServiceService> loggerPricingService = mockPricingService.Object;
+
+                IPricingServiceService service = new PricingServiceService(loggerPricingService, _config);
+
+                var mockCalculating = new Mock<ILogger<CalculatingController>>();
+                ILogger<CalculatingController> loggerCalculating = mockCalculating.Object;
+
+                return new CalculatingController(loggerCalculating, service);
+            }
+        }
+
+        public PriceCalculatorTest()
+        {
+            _config = new ConfigurationBuilder().AddJsonFile("appsettings.test.json").AddEnvironmentVariables().Build();
+        }
+
         [Fact]
         public void Calculate_X()
         {
             //Arrange
-            IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.test.json")
-                .AddEnvironmentVariables().Build();
-
-            var mockPricingService = new Mock<ILogger<PricingServiceService>>();
-            ILogger<PricingServiceService> loggerPricingService = mockPricingService.Object;
-
-            IPricingServiceService service = new PricingServiceService(loggerPricingService, config);
-
-            var mockCalculating = new Mock<ILogger<CalculatingController>>();
-            ILogger<CalculatingController> loggerCalculating = mockCalculating.Object;
-
-            var controller = new CalculatingController(loggerCalculating, service);
-
-            //Act
             CalculatePrice calculatePrice = new CalculatePrice
             {
                 CustomerId = Constants.Customer_X_Id,
@@ -37,7 +46,26 @@ namespace QLabs.PricingCalculator.Test
                 FinishDate = new DateTime(2019, 10, 01)
             };
 
-            decimal result = controller.CalculatePrice(calculatePrice);
+            //Act
+            decimal result = CalculatingControl.CalculatePrice(calculatePrice);
+
+            //Assert
+            Assert.True(result > 0);
+        }
+
+        [Fact]
+        public void Calculate_Y()
+        {
+            //Arrange
+            CalculatePrice calculatePrice = new CalculatePrice
+            {
+                CustomerId = Constants.Customer_Y_Id,
+                StartDate = new DateTime(2018, 1, 1),
+                FinishDate = new DateTime(2019, 10, 01)
+            };
+
+            //Act
+            decimal result = CalculatingControl.CalculatePrice(calculatePrice);
 
             //Assert
             Assert.True(result > 0);

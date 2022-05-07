@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="mkdir $(SolutionDir)\Libs&#xD;&#xA;mkdir $(SolutionDir)\Libs\Pricing&#xD;&#xA;xcopy /y $(OutDir)$(TargetFileName) $(SolutionDir)\Libs&#xD;&#xA;xcopy /y $(OutDir)$(TargetFileName) $(SolutionDir)\Libs\Pricing" />
+    <Exec Command="mkdir $(SolutionDir)\Libs&#xD;&#xA;mkdir $(SolutionDir)\Libs\Customer&#xD;&#xA;mkdir $(SolutionDir)\Libs\Pricing&#xD;&#xA;xcopy /y $(OutDir)$(TargetFileName) $(SolutionDir)\Libs\Customer&#xD;&#xA;xcopy /y $(OutDir)$(TargetFileName) $(SolutionDir)\Libs\Pricing" />
   </Target>
 
 </Project>

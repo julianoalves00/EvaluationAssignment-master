@@ -1,7 +1,7 @@
 ﻿using QLabs.Common;
 using System;
 
-namespace QLabs.Customer.Domain
+namespace QLabs.Common.Domain
 {
     public class ServiceItem : BaseEntity
     {

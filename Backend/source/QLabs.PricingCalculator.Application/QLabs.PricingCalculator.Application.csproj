@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -17,9 +17,6 @@
   <ItemGroup>
     <Reference Include="QLabs.Common">
       <HintPath>..\Libs\Pricing\QLabs.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="QLabs.Customer.Domain">
-      <HintPath>..\Libs\Pricing\QLabs.Customer.Domain.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -10,11 +10,8 @@
 
   <ItemGroup>
     <Reference Include="QLabs.Common">
-      <HintPath>..\Libs\QLabs.Common.dll</HintPath>
+      <HintPath>..\Libs\Customer\QLabs.Common.dll</HintPath>
     </Reference>
-    <Reference Include="QLabs.Customer.Domain">
-      <HintPath>..\Libs\QLabs.Customer.Domain.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
+  </ItemGroup>    
+  
 </Project>

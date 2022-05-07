@@ -14,5 +14,24 @@ namespace QLabs.Common
         public static Guid Customer_A_Id { get => new Guid("19bb9cbd-f64a-4cc3-ac46-c9fbe3c44cbc"); }
         public static Guid Customer_X_Id { get => new Guid("3f0d40d3-47f3-445c-aa92-968e1f1f7a27"); }
         public static Guid Customer_Y_Id { get => new Guid("6c594318-3ca8-4982-b75e-6a877f764807"); }
+
+        public static int[] WorkDays
+        {
+            get => new int[] {
+                                ((int)DayOfWeek.Monday),
+                                ((int)DayOfWeek.Tuesday),
+                                ((int)DayOfWeek.Wednesday),
+                                ((int)DayOfWeek.Thursday),
+                                ((int)DayOfWeek.Friday)
+                };
+        }
+
+        public static int[] AllDays
+        {
+            get => WorkDays
+                .Append((int)DayOfWeek.Saturday)
+                .Append((int)DayOfWeek.Sunday)
+                .ToArray();
+        }
     }
 }

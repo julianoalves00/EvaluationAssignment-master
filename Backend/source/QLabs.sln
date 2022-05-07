@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QLabs.Customer.Api", "QLabs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QLabs.Customer.Application", "QLabs.Customer.Application\QLabs.Customer.Application.csproj", "{42C91C0A-BB1A-4A0A-907A-25568DFB6005}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QLabs.Customer.Domain", "QLabs.Customer.Domain\QLabs.Customer.Domain.csproj", "{EEFA8BF8-E296-4C5C-AB11-215A3E265201}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QLabs.Customer.Test", "QLabs.Customer.Test\QLabs.Customer.Test.csproj", "{DEFFD197-500B-4174-9109-DACB4B74C70E}"
 EndProject
 Global
@@ -55,10 +53,6 @@ Global
 		{42C91C0A-BB1A-4A0A-907A-25568DFB6005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42C91C0A-BB1A-4A0A-907A-25568DFB6005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42C91C0A-BB1A-4A0A-907A-25568DFB6005}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EEFA8BF8-E296-4C5C-AB11-215A3E265201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEFA8BF8-E296-4C5C-AB11-215A3E265201}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEFA8BF8-E296-4C5C-AB11-215A3E265201}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEFA8BF8-E296-4C5C-AB11-215A3E265201}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DEFFD197-500B-4174-9109-DACB4B74C70E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DEFFD197-500B-4174-9109-DACB4B74C70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEFFD197-500B-4174-9109-DACB4B74C70E}.Release|Any CPU.ActiveCfg = Release|Any CPU

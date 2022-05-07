@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace QLabs.Customer.Domain
+namespace QLabs.Common.Domain
 {
     public class CustomerItem : BaseEntity
     {

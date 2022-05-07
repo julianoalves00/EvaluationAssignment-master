@@ -1,4 +1,4 @@
-﻿using QLabs.Customer.Domain;
+﻿using QLabs.Common.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

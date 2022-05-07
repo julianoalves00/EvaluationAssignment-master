@@ -3,7 +3,7 @@ using Moq;
 using QLabs.Common;
 using QLabs.Customer.Api.Controllers;
 using QLabs.Customer.Application.Services;
-using QLabs.Customer.Domain;
+using QLabs.Common.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

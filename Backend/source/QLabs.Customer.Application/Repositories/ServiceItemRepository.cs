@@ -1,5 +1,5 @@
 ﻿using QLabs.Common;
-using QLabs.Customer.Domain;
+using QLabs.Common.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,10 +64,7 @@ namespace QLabs.Customer.Application.Repositories
                 Id = Constants.Service_A_Id,
                 Name = "Service A",
                 WorkDayPrice = 0.2M,
-                DaysOfTheWeek = new int[]
-                {
-                    ((int)DayOfWeek.Monday), ((int)DayOfWeek.Tuesday), ((int)DayOfWeek.Wednesday), ((int)DayOfWeek.Thursday), ((int)DayOfWeek.Friday)
-                }
+                DaysOfTheWeek = Constants.WorkDays
             };
 
             ServiceItemRepository.Instance.Add(serviceA);
@@ -78,10 +75,7 @@ namespace QLabs.Customer.Application.Repositories
                 Id = Constants.Service_B_Id,
                 Name = "Service B",
                 WorkDayPrice = 0.24M,
-                DaysOfTheWeek = new int[]
-                {
-                    ((int)DayOfWeek.Monday), ((int)DayOfWeek.Tuesday), ((int)DayOfWeek.Wednesday), ((int)DayOfWeek.Thursday), ((int)DayOfWeek.Friday)
-                }
+                DaysOfTheWeek = Constants.WorkDays
             };
 
             ServiceItemRepository.Instance.Add(serviceB);
@@ -92,11 +86,7 @@ namespace QLabs.Customer.Application.Repositories
                 Id = Constants.Service_C_Id,
                 Name = "Service C",
                 WorkDayPrice = 0.4M,
-                DaysOfTheWeek = new int[]
-                {
-                    ((int)DayOfWeek.Monday), ((int)DayOfWeek.Tuesday), ((int)DayOfWeek.Wednesday), ((int)DayOfWeek.Thursday), ((int)DayOfWeek.Friday),
-                    ((int)DayOfWeek.Saturday), ((int)DayOfWeek.Sunday)
-                }
+                DaysOfTheWeek = Constants.AllDays
             };
 
             ServiceItemRepository.Instance.Add(serviceC);
