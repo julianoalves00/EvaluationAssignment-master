@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QLabs.PricingCalculator.Domain\QLabs.PricingCalculator.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="QLabs.Common">
+      <HintPath>..\Libs\Pricing\QLabs.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="QLabs.Customer.Domain">
+      <HintPath>..\Libs\Pricing\QLabs.Customer.Domain.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

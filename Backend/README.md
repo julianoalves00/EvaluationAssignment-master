@@ -11,7 +11,10 @@
 **Background**
 --------
 
-Company X provides services to other companies in the region. Your job is to develop a Web API within a micro-services solution that is solely responsible for calculating prices and should only be called by other services, not humans. There are three types of services; _Service A_, _Service B_ and _Service C_. These services have different prices and the prices also depend on the customer, the time period for which they are charged, possible discount (percentage of total price) and free days. A customer can choose which service they want to use independently of other services and customers.
+Company X provides services to other companies in the region. Your job is to develop a Web API within a micro-services solution that is solely responsible for calculating prices and should only be called by other services, not humans. 
+There are three types of services; _Service A_, _Service B_ and _Service C_. 
+These services have different prices and the prices also depend on the customer, the time period for which they are charged, possible discount (percentage of total price) and free days. 
+A customer can choose which service they want to use independently of other services and customers.
 
 **User story**
 --------
