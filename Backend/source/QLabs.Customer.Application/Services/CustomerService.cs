@@ -36,15 +36,11 @@ namespace QLabs.Customer.Application.Services
 
         public CustomerItem Create(CustomerItem entity)
         {
-            if(entity.Id == Guid.Empty)
-                entity.Id = Guid.NewGuid();
             entity.Contracts?.ForEach(c => c.CustumerId = entity.Id);
 
             _repository.Add(entity);
 
             return entity;
         }
-
-        
     }
 }

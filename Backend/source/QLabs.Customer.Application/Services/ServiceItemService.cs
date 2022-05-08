@@ -33,17 +33,9 @@ namespace QLabs.Customer.Application.Services
 
         public ServiceItem Create(ServiceItem entity)
         {
-            if (entity.Id == Guid.Empty)
-                entity.Id = Guid.NewGuid();
-            
-
             _repository.Add(entity);
 
             return entity;
         }
-
-        
-
-        
     }
 }

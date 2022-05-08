@@ -24,7 +24,6 @@ namespace QLabs.Customer.Application.Repositories
                 if (_instance == null)
                 {
                     _instance = new ServiceItemRepository();
-                    //PreLoad();
                 }
 
                 return _instance;
@@ -56,42 +55,6 @@ namespace QLabs.Customer.Application.Repositories
         {
             if (services.ContainsKey(entity.Id))
                 services[entity.Id] = entity;
-        }
-
-        private static void PreLoad()
-        {
-            // _Service A_ = € 0,2 / working day(monday - friday)
-            ServiceItem serviceA = new ServiceItem
-            {
-                Id = Constants.Service_A_Id,
-                Name = "Service A",
-                WorkDayPrice = 0.2M,
-                DaysOfTheWeek = Constants.WorkDays
-            };
-
-            ServiceItemRepository.Instance.Add(serviceA);
-
-            // _Service B_ = € 0,24 / working day(monday - friday)
-            ServiceItem serviceB = new ServiceItem
-            {
-                Id = Constants.Service_B_Id,
-                Name = "Service B",
-                WorkDayPrice = 0.24M,
-                DaysOfTheWeek = Constants.WorkDays
-            };
-
-            ServiceItemRepository.Instance.Add(serviceB);
-
-            // _Service C_ = € 0,4 / day(monday - sunday)
-            ServiceItem serviceC = new ServiceItem
-            {
-                Id = Constants.Service_C_Id,
-                Name = "Service C",
-                WorkDayPrice = 0.4M,
-                DaysOfTheWeek = Constants.AllDays
-            };
-
-            ServiceItemRepository.Instance.Add(serviceC);
         }
     }
 }

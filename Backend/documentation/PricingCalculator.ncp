@@ -1,0 +1,92 @@
+<Project>
+  <Name>PricingCalculator</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Customers</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>ServiceItem</Name>
+        <Access>Public</Access>
+        <Location left="719" top="59" />
+        <Size width="218" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public Guid Id</Member>
+        <Member type="Field">public decimal WorkDayPrice</Member>
+        <Member type="Field">public int[] DaysOfTheWeek</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>DiscountPeriod</Name>
+        <Access>Public</Access>
+        <Location left="719" top="226" />
+        <Size width="218" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public Guid Id</Member>
+        <Member type="Field">public decimal Percentage</Member>
+        <Member type="Field">public DateTime? StartDate</Member>
+        <Member type="Field">public DateTime? FinishDate</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CustomerItem</Name>
+        <Access>Public</Access>
+        <Location left="80" top="88" />
+        <Size width="218" height="147" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public Guid Id</Member>
+        <Member type="Field">public string Name</Member>
+        <Member type="Field">public int? FreeDaysPromotion</Member>
+        <Member type="Field">public List&lt;ContractService&gt; Contracts</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ContractService</Name>
+        <Access>Public</Access>
+        <Location left="385" top="102" />
+        <Size width="234" height="204" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public Guid Id</Member>
+        <Member type="Field">public Guid CustumerId</Member>
+        <Member type="Field">public Guid ServiceId</Member>
+        <Member type="Field">public ServiceItem Service</Member>
+        <Member type="Field">public DateTime? StartDate</Member>
+        <Member type="Field">public decimal? WorkDayPrice</Member>
+        <Member type="Field">public DiscountPeriod? DiscountPeriod</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CalculatePrice</Name>
+        <Access>Public</Access>
+        <Location left="92" top="360" />
+        <Size width="162" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public Guid CustomerId</Member>
+        <Member type="Field">public DateTime StartDate</Member>
+        <Member type="Field">public DateTime FinishDate</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Nesting" first="2" second="3">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="3" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

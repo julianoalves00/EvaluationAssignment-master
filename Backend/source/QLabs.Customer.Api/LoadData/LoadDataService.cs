@@ -13,19 +13,24 @@ namespace QLabs.Customer.Api.LoadData
     public class LoadDataService : IHostedService
     {
         IServiceItemService _serviceItem;
-        public LoadDataService(IServiceItemService serviceItem)
+        ICustomerService _customerService;
+        public LoadDataService(IServiceItemService serviceItem, ICustomerService customerService)
         {
             _serviceItem = serviceItem;
+            _customerService = customerService;
         }
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             await Task.FromResult(LoadServices());
+            await Task.FromResult(LoadCustomers());
         }
 
         public async Task StopAsync(CancellationToken cancellationToken)
         {
         }
+
+        #region Private Methods
 
         private bool LoadServices()
         {
@@ -64,5 +69,118 @@ namespace QLabs.Customer.Api.LoadData
 
             return true;
         }
+
+        private bool LoadCustomers()
+        {
+            CustomerItem customer = new CustomerItem
+            {
+                Id = Guid.NewGuid(),
+                Name = "Customer X",
+                Contracts = new List<ContractService>()
+                {
+                    new ContractService
+                    {
+                        ServiceId = Constants.Service_A_Id,
+                        StartDate = new DateTime(2019, 9, 20)
+                    },
+                    new ContractService
+                    {
+                        ServiceId = Constants.Service_C_Id,
+                        StartDate = new DateTime(2019, 9, 20),
+                        DiscountPeriod = new DiscountPeriod
+                        {
+                            StartDate = new DateTime(2019, 9, 22),
+                            FinishDate = new DateTime(2019, 9, 24),
+                            Percentage = 20.0M
+                        }
+                    }
+                }
+            };
+
+            _customerService.Create(customer);
+
+            customer = new CustomerItem
+            {
+                Id = Guid.NewGuid(),
+                Name = "Customer Y",
+                FreeDaysPromotion = 200,
+                Contracts = new List<ContractService>()
+                {
+                    new ContractService
+                    {
+                        ServiceId = Constants.Service_B_Id,
+                        //StartDate = new DateTime(2018, 1, 1),
+                        DiscountPeriod = new DiscountPeriod
+                        {
+                            Percentage = 30.0M
+                        }
+                    },
+                    new ContractService
+                    {
+                        ServiceId = Constants.Service_C_Id,
+                        //StartDate = new DateTime(2018, 1, 1),
+                        DiscountPeriod = new DiscountPeriod
+                        {
+                            Percentage = 30.0M
+                        }
+                    }
+                }
+            };
+
+            _customerService.Create(customer);
+
+            customer = new CustomerItem
+            {
+                Id = Guid.NewGuid(),
+                Name = "Customer Diff Server Price",
+                Contracts = new List<ContractService>()
+                {
+                    new ContractService
+                    {
+                        ServiceId = Constants.Service_B_Id,
+                        StartDate = new DateTime(2018, 6, 1),
+                        DiscountPeriod = new DiscountPeriod
+                        {
+                            Percentage = 30.0M
+                        }
+                    },
+                    new ContractService
+                    {
+                        ServiceId = Constants.Service_C_Id,
+                        DiscountPeriod = new DiscountPeriod
+                        {
+                            Percentage = 30.0M
+                        }
+                    }
+                }
+            };
+
+            _customerService.Create(customer);
+
+            customer = new CustomerItem
+            {
+                Id = Guid.NewGuid(),
+                Name = "Customer A",
+                Contracts = new List<ContractService>()
+                {
+                    new ContractService
+                    {
+                        ServiceId = Constants.Service_A_Id,
+                        WorkDayPrice = 0.15M
+                    },
+                    new ContractService
+                    {
+                        ServiceId = Constants.Service_B_Id,
+                        WorkDayPrice = 0.25M
+                    }
+                }
+            };
+
+            _customerService.Create(customer);
+
+            return true;
+        }
+
+        #endregion
     }
 }

@@ -36,7 +36,6 @@ namespace QLabs.Customer.Api
 
             services.AddSingleton<ICustomerService, CustomerService>();
             services.AddSingleton<IServiceItemService, ServiceItemService>();
-            services.AddSingleton<IPreLoadServices, PreLoadServices>();
 
             services.AddHostedService<LoadDataService>();
         }

@@ -1,0 +1,26 @@
+
+-----------------------------------------------
+CUSTOMER API
+-----------------------------------------------
+Run QLabs.Customer.Api
+	- Goto 'QLabs.Customer.Api' folder in cmd
+	- Run project 'dotnet run'
+
+-----------------------------------------------
+UNIT TESTS
+-----------------------------------------------
+- First start the Customer api 
+- Run tests in project 'QLabs.PricingCalculator.Test'
+
+-----------------------------------------------
+PRICING CALCULATOR API
+-----------------------------------------------
+- First start the Customer api 
+- Run the project 'QLabs.PricingCalculator.Api'
+- Goto customer api 'https://localhost:5001' for get a valid customer id
+- Test 'CalculatePrice', example json:
+	{
+	  "customerId": "4d8ea509-cb14-4f3f-ac86-69c8d485732b",
+	  "startDate": "2019-01-01",
+	  "finishDate": "2020-01-01"
+	}

@@ -8,6 +8,11 @@ namespace QLabs.Common
 {
     public abstract class BaseEntity
     {
-        public Guid Id { get; set; }
+        private Guid _id = Guid.NewGuid();
+        public Guid Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
     }
 }
